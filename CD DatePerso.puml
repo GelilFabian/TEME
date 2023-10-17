@@ -1,0 +1,58 @@
+@startuml
+'https://plantuml.com/class-diagram
+class LandingPage {
+afiseaza_ListaOptiune()
+}
+class ListaOptiune {
+text
+inaltime
+latime
+afiseaza_Complet()
+afiseaza_Minim()
+}
+class Minim {
+inaltime
+latime
+afiseaza_Identitate ()
+afiseaza_Comunicare ()
+}
+class Complet {
+inaltime
+latime
+afiseaza_Identitate ()
+afiseaza_Comunicare ()
+afiseaza_Experienta ()
+afiseaza_Hobby ()
+}
+class buton_Identitate {
+nume
+prenume
+nr_carte_identitate
+varsta
+afiseaza ()
+}
+class buton_Comunicare {
+lista_app-conturi_social_media
+afiseaza ()
+}
+class buton_Experienta {
+lista_proiecte
+timp_participare
+data_curenta
+afiseaza ()
+}
+class buton_Hobby {
+lista_hobby
+data_curenta
+afiseaza ()
+}
+LandingPage "1" *-- "1" ListaOptiune
+ListaOptiune "1" *-- "1" Complet
+ListaOptiune "1" *-- "1" Minim
+Minim "1" *-- "1" buton_Identitate
+Minim "1" *-- "1" buton_Comunicare
+Complet "1" *-- "1" buton_Identitate
+Complet "1" *-- "1" buton_Comunicare
+Complet "1" *-- "1" buton_Experienta
+Complet "1" *-- "1" buton_Hobby
+@enduml

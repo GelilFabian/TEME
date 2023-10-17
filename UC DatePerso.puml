@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+actor Utilizator as u
+actor Functie as f
+usecase "Se va executa o\n functie specifica" as U1
+usecase "Se vor afisa butoanele Identitate si Comunicare" as U3
+usecase "Se vor afisa butoanele \n toate butoanele: Identitate, \n Comunicare, Hobby si Experienta" as U4
+usecase "Va afisa pe ecran,\n in consola dar si\n intr-un alert informatia\n corespunzatoare" as U2
+u --> U1:face click \n pe oricare buton
+u --> U3:face click \n optiunea minim
+u --> U4:face click \n optiunea complet
+f --> U2
+U1 --> f
+@enduml
