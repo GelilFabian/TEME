@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DatePerso</title>
+</head>
+<body>
+<form action="/action_page.php">
+    <label for="selection">Alege tipul de afisaj:</label>
+    <select name="selection" id="selection" onchange="selectvalue()">
+        <option value="default" selected="selected">--</option>
+        <option value="minim">Minim</option>
+        <option value="complet">Complet</option>
+    </select>
+</form>
+
+<button id="button1" onclick="Button1()" style="display: none;">Identitate</button>
+<button id="button2" onclick="Button2()" style="display: none;">Comunicare</button>
+<button id="button3" onclick="Button3()" style="display: none;">Experienta</button>
+<button id="button4" onclick="Button4()" style="display: none;">Hobby</button>
+
+<script>
+    let selectOptiune = document.getElementById("selection")
+    function selectvalue(){
+        console.log("am selectat optiunea")
+        let optiune = selectOptiune.value;
+
+        let bid = document.getElementById("button1");
+        let bid2 = document.getElementById("button2");
+        let bid3 = document.getElementById("button3");
+        let bid4 = document.getElementById("button4");
+
+        bid.style.display="none"
+        bid2.style.display="none"
+        bid3.style.display="none"
+        bid4.style.display="none"
+
+        console.log(optiune)
+        if(optiune == "minim"){
+            bid.style = "block";
+            bid2.style = "block";
+        } else if(optiune == "complet"){
+            bid.style = "block";
+            bid2.style = "block";
+            bid3.style = "block";
+            bid4.style = "block";
+        }
+    }
+
+    function Button1(){
+        let nume = "Nume: Gelil";
+        let prenume = "Prenume: Fabian";
+        let nrIdentitate = "Nr. carte de identitate: 123456789";
+        let varsta = "Varsta: 22";
+
+        console.log(nume);
+        console.log(prenume);
+        console.log(nrIdentitate);
+        console.log(varsta);
+
+        alert(nume + "\n" + prenume + "\n" + nrIdentitate + "\n" + varsta);
+    }
+
+    function Button2(){
+        let conturiSocialMedia = "Lista conturi social media: Facebook, Instagram, Linkedin";
+        console.log(conturiSocialMedia);
+        alert(conturiSocialMedia);
+    }
+
+    function Button3(){
+        let proiecte = "Lista proiecte: Proiect A, Proiect B";
+        let durataProiecte = "Durata proiectelor: 6 luni, 1 an";
+        let dataCurenta = "Data curenta: " + new Date().toLocaleDateString();
+
+        console.log(proiecte);
+        console.log(durataProiecte);
+        console.log(dataCurenta);
+
+        alert(proiecte + "\n" + durataProiecte + "\n" + dataCurenta);
+    }
+
+    function Button4(){
+        let hobbyuri = "Lista hobby-uri: Programare, Sala, Masini";
+        let dataCurenta = "Data curenta: " + new Date().toLocaleDateString();
+
+        console.log(hobbyuri);
+
+        alert(hobbyuri + "\n" + dataCurenta);
+    }
+</script>
+</body>
+</html>
