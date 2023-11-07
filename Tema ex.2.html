@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Configurari Telefoane Mobile</title>
+</head>
+<body>
+<input type="text" id="nrTelefoane">
+<button onclick="Continue()">Continue</button> <br><br>
+
+<div id="configurari" style="display: none;">
+    <p>Configurari</p>
+    <input type="text" id="model" placeholder="Model"><br><br>
+    <input type="text" id="pret" placeholder="Pret"><br><br>
+    <input type="text" id="constructor" placeholder="Constructor"><br><br>
+    <input type="text" id="memory" placeholder="Memorie"><br><br>
+    <button onclick="Add()" id="addButton" style="display: block">Add</button>
+    <button onclick="Display()" id="displayButton" style="display: none">Display</button>
+</div>
+
+<script>
+    let numarTelefoane = 0;
+    let configurari = [];
+
+    function Continue() {
+        let numarTelefoaneInput = document.getElementById("nrTelefoane").value;
+        let configurariZone = document.getElementById("configurari");
+
+        numarTelefoane = parseInt(numarTelefoaneInput);
+
+        if (numarTelefoane > 5) {
+            configurariZone.style.display = "block";
+        } else {
+            alert("Introduceti un numar mai mare de 5");
+        }
+    }
+
+    function Add() {
+        let modelInput = document.getElementById("model");
+        let pretInput = document.getElementById("pret");
+        let constructorInput = document.getElementById("constructor");
+        let memoryInput = document.getElementById("memory");
+
+        let model = modelInput.value;
+        let pret = pretInput.value;
+        let constructor = constructorInput.value;
+        let memory = memoryInput.value;
+
+        configurari.push({ model, pret, constructor, memory });
+
+        if(configurari.length === numarTelefoane){
+            document.getElementById("addButton").style.display = "none";
+            document.getElementById("displayButton").style.display = "block";
+        }
+
+        modelInput.value = "";
+        pretInput.value = "";
+        constructorInput.value = "";
+        memoryInput.value = "";
+    }
+
+    function Display() {
+        console.log(configurari);
+    }
+
+</script>
+</body>
+</html>
