@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>While Statement</title>
+</head>
+<body>
+<p>Introduceti numere , la #Stop se opreste</p>
+<input type="text" id="nr" placeholder="Introdu numere.." onchange="addNumber()">
+<script>
+    //Creati un proiect js cu numele While Statement. Sa se construiasca un tablou de numere, citind de la
+    //utilizator val din tablou cat timp utilizatorul introduce sirul #Stop
+    const stop = "#Stop"
+    let tablou = []
+    function addNumber(){
+        let valoare = document.getElementById("nr").value
+        if(valoare === stop){
+            console.log("Utilizatorul a introdus #Stop. Tabloul final:", tablou);
+        } else {
+            if (!isNaN(valoare)) {
+                tablou.push(parseFloat(valoare));
+                console.log("Tablou curent:", tablou);
+            } else {
+                console.log("Introduceti un numar valid sau #Stop.");
+            }
+            document.getElementById("nr").value = "";
+        }
+    }
+</script>
+</body>
+</html>
