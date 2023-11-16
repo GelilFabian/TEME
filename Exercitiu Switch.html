@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Problema matematica</title>
+</head>
+<body>
+    <p>Introdu un operator matematic(adunare, scadere, inmultire, impartire)</p>
+    <input type="text" id="operatorMatematic" onchange="addOperator()">
+<script>
+    //Userul va introduce un sir de caractere (string) de la tastatura. Daca sirul este una dintre optiunile urmatoare: adunare, scadere, inmultire, impartire
+    //utilizatorului i se afiseaza mesajul "Am inteles!" si rezultatul matematic obtinut din aplicarea optiunii introduse ca si operator matematic pentru numerele 1024 si 2.
+    //Daca nu se reecunoaste optiunea introdusa de utilizator, se afiseaza rezultatul "Operator matematic necunoscut"
+    function addOperator(){
+        let operator = document.getElementById("operatorMatematic").value.toLowerCase()
+        switch(operator){
+            case "adunare":
+                alert("Am inteles!")
+                alert(1024+2)
+                break;
+            case "scadere":
+                alert("Am inteles!")
+                alert(1024-2)
+                break;
+            case "inmultire":
+                alert("Am inteles!")
+                alert(1024*2)
+                break;
+            case "impartire":
+                alert("Am inteles!")
+                alert(1024/2)
+                break;
+            default:
+                alert("Operator matematic necunoscut")
+        }
+    }
+</script>
+</body>
+</html>
