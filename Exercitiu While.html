@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>While Statement</title>
+</head>
+<body>
+
+<script>
+    let bazaDate = [{id:0,nume:"laptop"},{id:1,nume:"tableta"},{id:2,nume:"mobil"},{id:3,nume:"tv"}]
+    function printAlert(){
+        let i=0;
+        while(i<bazaDate.length){
+            let valPret = prompt("Introdu pretul:");
+            bazaDate[i].pret=valPret;
+            alert(bazaDate[i].id+" "+bazaDate[i].nume+" "+bazaDate[i].pret);
+            i++;
+        }
+        console.log(bazaDate)
+    }
+    printAlert();
+</script>
+
+</body>
+</html>
