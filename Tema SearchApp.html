@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SearchApp</title>
+</head>
+<body>
+<div id="menu">
+    <button onclick="afiseazaOperatori()">AlegeOperator</button>
+    <button onclick="afiseazaInputTablou()">InputTablou</button>
+    <button onclick="afiseazaReferinta()">StabilesteReferinta</button>
+    <button onclick="cautaReferinta()">CautaReferinta</button>
+    <button onclick="reset()">Reset</button>
+    <br><br>
+    <div id="operatori" style="display:none">
+        <label for="operator">Alege Operator:</label>
+        <select name="operator" id="operator" onchange="memoreazaOperator()">
+            <option><</option>
+            <option>></option>
+            <option>==</option>
+            <option>!=</option>
+        </select>
+    </div>
+    <div id="inputNumere" style="display: none">
+        <label for="input">Introdu 10 numere:</label>
+        <input type="text" id="input" onchange="addNumber()">
+    </div>
+    <div id="inputReferinta" style="display: none">
+        <label for="referinta">Introdu o referinta:</label>
+        <input type="text" id="referinta" onchange="addReferinta()">
+    </div>
+</div>
+<div id="content"></div>
+<script>
+    let tablou = []
+    let OpSelectat = ""
+    let valReferinta = ""
+    function afiseazaOperatori() {
+        let operatori = document.getElementById("operatori");
+        operatori.style.display = "block";
+    }
+
+    function memoreazaOperator(){
+        let opSelectat = document.getElementById("operator").value;
+        OpSelectat = opSelectat;
+        console.log("Operatorul selectat este "+opSelectat)
+    }
+
+    function afiseazaInputTablou() {
+        let input = document.getElementById("inputNumere");
+        input.style.display = "block";
+    }
+
+    function addNumber() {
+        let valoare = document.getElementById("input").value
+        tablou.push(parseFloat(valoare));
+        console.log("Tablou curent:", tablou);
+        document.getElementById("input").value = "";
+    }
+
+    function afiseazaReferinta() {
+        let referinta = document.getElementById("inputReferinta");
+        referinta.style.display = "block";
+    }
+
+    function addReferinta() {
+        let valoare = document.getElementById("referinta").value;
+        valReferinta = valoare;
+        console.log("Referinta este " + valoare)
+    }
+
+    function cautaReferinta() {
+        let k = false;
+        switch(OpSelectat){
+            case "<":
+                for(let i=0;i<tablou.length;i++){
+                    if(tablou[i]<valReferinta){
+                        console.log(tablou[i])
+                    }
+                    else {
+                        console.log("Referinta este mai mica decat numerele tabloului!")
+                    }
+                }
+                break;
+            case ">":
+                for(let i=0;i<tablou.length;i++){
+                    if(tablou[i]>valReferinta){
+                        console.log(tablou[i])
+                    }
+                    else {
+                        console.log("Referinta este mai mare decat numerele tabloului!")
+                    }
+                }
+                break;
+            case "==":
+                for(let i=0;i<tablou.length;i++){
+                    if(tablou[i]==valReferinta){
+                        console.log("S-a gasit numarul " + tablou[i] + " egal cu referinta!")
+                    }
+                    else {
+                        console.log("Nu s-a gasit elementul!")
+                    }
+                }
+                break;
+            case "!=":
+                for(let i=0;i<tablou.length;i++){
+                    if(tablou[i]!=valReferinta){
+                        console.log(tablou[i])
+                    }
+                }
+                break;
+        }
+    }
+
+    function reset() {
+        location.reload();
+    }
+</script>
+</body>
+</html>
